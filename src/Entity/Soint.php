@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SointRepository")
  */
-class Soint
+class Soint extends Master
 {
     /**
      * @ORM\Id()
@@ -25,6 +25,11 @@ class Soint
      * @ORM\Column(type="integer")
      */
     private $Effect;
+
+    public function __construct()
+    {
+    	parent::construct();
+    }
 
     public function getId(): ?int
     {

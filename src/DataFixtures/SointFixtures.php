@@ -27,8 +27,9 @@
 	    public function getPokemons()
 	    {
 	    	return [
-	    		['Potion', 75],
-	    		['Super potion', 150]
+	    		['Potion', 50],
+	    		['Super potion', 75],
+	    		['Hyper potion', 150]
 	    	];
 	    }
 	}
