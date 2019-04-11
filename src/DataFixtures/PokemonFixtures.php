@@ -23,6 +23,7 @@
 	    		;
 
 	    		$manager->persist($pokemon);
+	    		$reference = $this->addReference($name, $pokemon);
 	    	}
 
 	    	$manager->flush();

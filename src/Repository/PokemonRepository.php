@@ -30,6 +30,16 @@ class PokemonRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function findStarter()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'ASC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     // /**
     //  * @return Pokemon[] Returns an array of Pokemon objects
     //  */

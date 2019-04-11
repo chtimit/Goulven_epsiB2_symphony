@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Starter index{% endblock %}
+
+{% block body %}
+    <h1>Starter index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>PV</th>
+                <th>ATK</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pokemon in pokemon %}
+            <tr>
+                <td>{{ pokemon.Name }}</td>
+                <td>{{ pokemon.Type }}</td>
+                <td>{{ pokemon.PV }}</td>
+                {% for ATK in pokemon.atk %}
+                    <td>{{ ATK.Name }}</td>
+                {% endfor %}
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
