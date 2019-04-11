@@ -31,7 +31,7 @@
 			}
 			else if ($typeAtk == 2)
 			{
-				if ($typePkm == 0)
+				if ($typePkm == 3)
 				{
 					return true;
 				}
@@ -54,7 +54,7 @@
 			}
 			else if ($typeAtk == 1)
 			{
-				if ($typePkm == 0)
+				if ($typePkm == 3)
 				{
 					return true;
 				}

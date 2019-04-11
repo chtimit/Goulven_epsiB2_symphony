@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bag{% endblock %}
+
+{% block body %}
+    <h1>Bag</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Enable</th>
+                <td>{{ soint.Enable ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ soint.CreatedAt ? soint.CreatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ soint.UpdatedAt ? soint.UpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DeletedAt</th>
+                <td>{{ soint.DeletedAt ? soint.DeletedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ soint.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ soint.Name }}</td>
+            </tr>
+            <tr>
+                <th>Effect</th>
+                <td>{{ soint.Effect }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('bag_index') }}">back to list</a>
+
+{% endblock %}

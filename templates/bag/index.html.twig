@@ -14,7 +14,7 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>effet</th>
+                <th>effect</th>
             </tr>
         </thead>
         <tbody>
@@ -22,10 +22,9 @@
             <tr>
                 <td>{{ bag.id }}</td>
                 <td>{{ bag.Name }}</td>
-                <td>{{ bag.Effet }}</td>
+                <td>{{ bag.Effect }}</td>
                 <td>
-                    <a href="{{ path('pokemon_show', {'id': pokemon.id}) }}">show</a>
-                    <a href="{{ path('pokemon_edit', {'id': pokemon.id}) }}">edit</a>
+                    <a href="{{ path('bag_show', {'id': bag.id}) }}">show</a>
                 </td>
             </tr>
         {% else %}

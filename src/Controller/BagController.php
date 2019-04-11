@@ -26,10 +26,10 @@ class BagController extends AbstractController
     /**
      * @Route("/id/{id}", name="bag_show", methods={"GET"})
      */
-    public function show(Soint $trucdanssac): Response
+    public function show(Soint $soint): Response
     {
         return $this->render('bag/show.html.twig', [
-            'bag' => $trucdanssac,
+            'soint' => $soint,
         ]);
     }
 }
