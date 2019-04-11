@@ -28,7 +28,7 @@ class Soint extends Master
 
     public function __construct()
     {
-    	parent::construct();
+    	parent::__construct();
     }
 
     public function getId(): ?int

@@ -76,4 +76,9 @@ class ATK extends Master
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->Name;
+    }
 }

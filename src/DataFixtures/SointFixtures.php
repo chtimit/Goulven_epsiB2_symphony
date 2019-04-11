@@ -10,9 +10,9 @@
 	{
 	    public function load(ObjectManager $manager)
 	    {
-	    	foreach ($this->getPokemons() as [$name, $effect])
+	    	foreach ($this->getSoint() as [$name, $effect])
 	    	{
-	    		$soint = new Pokemon;
+	    		$soint = new Soint;
 	    		$soint
 	    			->setName($name)
 	    			->setEffect($effect)
@@ -24,7 +24,7 @@
 	    	$manager->flush();
 	    }
 
-	    public function getPokemons()
+	    public function getSoint()
 	    {
 	    	return [
 	    		['Potion', 50],

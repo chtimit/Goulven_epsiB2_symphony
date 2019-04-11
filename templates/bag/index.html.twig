@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Bag index{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        	<h1>Bag index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>effet</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bag in bag %}
+            <tr>
+                <td>{{ bag.id }}</td>
+                <td>{{ bag.Name }}</td>
+                <td>{{ bag.Effet }}</td>
+                <td>
+                    <a href="{{ path('pokemon_show', {'id': pokemon.id}) }}">show</a>
+                    <a href="{{ path('pokemon_edit', {'id': pokemon.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
