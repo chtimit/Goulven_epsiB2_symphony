@@ -40,6 +40,11 @@ class Dresseur implements UserInterface
      */
     private $equipe_pokemon;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Name;
+
     public function __construct()
     {
         $this->equipe_pokemon = new ArrayCollection();
@@ -145,6 +150,18 @@ class Dresseur implements UserInterface
         if ($this->equipe_pokemon->contains($equipePokemon)) {
             $this->equipe_pokemon->removeElement($equipePokemon);
         }
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->Name;
+    }
+
+    public function setName(string $Name): self
+    {
+        $this->Name = $Name;
 
         return $this;
     }

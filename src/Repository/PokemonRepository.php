@@ -34,6 +34,7 @@ class PokemonRepository extends ServiceEntityRepository
     public function findStarter()
     {
         return $this->createQueryBuilder('p')
+            ->andWhere('p.Enable = 1 and p.DeletedAt IS NOT NULL')
             ->orderBy('p.id', 'ASC')
             ->setMaxResults(3)
             ->getQuery()

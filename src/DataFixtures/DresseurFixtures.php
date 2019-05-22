@@ -2,11 +2,13 @@
 
 	namespace App\DataFixtures;
 
+	use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 	use Doctrine\Bundle\FixturesBundle\Fixture;
 	use Doctrine\Common\Persistence\ObjectManager;
 	use App\Entity\Dresseur;
+	use App\Entity\Pokemon;
 
-	class DresseurFixtures extends Fixture
+	class DresseurFixtures extends Fixture implements DependentFixtureInterface
 	{
 	    public function load(ObjectManager $manager)
 	    {
@@ -19,11 +21,9 @@
 	    			->setRoles($role)
 	    			->setPassword($pwd)
 	    		;
-	    		foreach ($boku_no_pokemon as $pokemon)
+	    		foreach ($boku_no_pokemon as $name_poke)
 	    		{
-	    			$dresseur
-	    				->addEquipePokemon($this->getReference($pokemon))
-	    			;
+	    			$dresseur->addEquipePokemon($this->getReference($name_poke));
 	    		}
 
 	    		$manager->persist($dresseur);
@@ -32,12 +32,19 @@
 	    	$manager->flush();
 	    }
 
-	    public function getPokemons()
+	    public function getDresseur()
 	    {
 	    	return [
-	    		['administrateur@oui.oui', 'ROLE_ADMIN', 'administrateur', 'root', []],
-	    		['ilovedawn@oui.oui', 'ROLE_USER', 'sacha', 'sacha', ['Salameche', 'Tortipousse', 'Lancelot']]
+	    		['administrateur@oui.oui', ['ROLE_ADMIN'], 'administrateur', 'root', []],
+	    		['ilovedawn@oui.oui', ['ROLE_USER'], 'sacha', 'sacha', ['Salameche', 'Tortipousse', 'Lancelot']]
 	    	];
+	    }
+
+	    public function getDependencies()
+	    {
+	        return array(
+	            PokemonFixtures::class,
+	        );
 	    }
 	}
 
